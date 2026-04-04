@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/jorda/Downloads/sheet1_beginner_basics.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beginner Basics – Wealth Cycle Trading</title>
+<link href="./Beginner Basics – Wealth Cycle Trading_files/css2" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E1520;
+  --gold: #B8892A;
+  --gold-pale: #F7EDD4;
+  --gold-mid: #D4A84B;
+  --paper: #FAFAF7;
+  --rule: #E4E0D8;
+  --muted: #7A7468;
+  --green-gain: #1A6B41;
+  --green-pale: #EBF5EF;
+  --red-loss: #B03030;
+  --red-pale: #FAEAEA;
+  --card-bg: #FFFFFF;
+  --shadow-sm: 0 1px 4px rgba(14,21,32,0.06), 0 4px 16px rgba(14,21,32,0.04);
+  --shadow-md: 0 2px 8px rgba(14,21,32,0.08), 0 8px 32px rgba(14,21,32,0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HEADER ─────────────────────────────── */
+header {
+  background: var(--ink);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.brand {
+  font-family: 'Fraunces', serif;
+  color: var(--gold-mid);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.header-right { display: flex; align-items: center; gap: 12px; }
+.sheet-num {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+.sheet-tag {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  background: var(--ink);
+  padding: 32px 28px 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.hero-text .kicker {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.hero-text h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.hero-text p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  max-width: 400px;
+}
+.hero-chart { flex-shrink: 0; }
+@media (max-width: 560px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-chart { display: none; }
+}
+
+/* ─── LAYOUT ─────────────────────────────── */
+main { padding: 22px 20px 12px; max-width: 920px; margin: 0 auto; }
+.row { display: grid; gap: 14px; margin-bottom: 14px; }
+.row-2 { grid-template-columns: 1fr 1fr; }
+.row-3 { grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 600px) { .row-2, .row-3 { grid-template-columns: 1fr; } }
+
+/* ─── SECTION LABEL ──────────────────────── */
+.label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.label.gold-line::after { background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
+
+/* ─── CARDS ──────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.card-body {
+  font-size: 0.77rem;
+  color: #4a4a4a;
+  line-height: 1.7;
+}
+.card-accent-line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 10px 10px 0 0;
+}
+
+/* ─── DARK CARD ──────────────────────────── */
+.card-dark {
+  background: var(--ink);
+  border-radius: 10px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+}
+.card-dark .card-title { color: var(--gold-mid); }
+
+/* ─── DEFINITION ROW ─────────────────────── */
+.def-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+@media (max-width: 600px) { .def-row { grid-template-columns: 1fr 1fr; } }
+.def-item {
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.def-item:hover { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,137,42,0.08); }
+.def-item.open { border-color: var(--gold); }
+.def-icon-wrap {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--gold-pale);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 10px;
+}
+.def-term { font-weight: 700; font-size: 0.82rem; color: var(--ink); margin-bottom: 3px; }
+.def-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.5; }
+.def-expand {
+  display: none;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+  font-size: 0.7rem;
+  color: #555;
+  line-height: 1.55;
+}
+.def-item.open .def-expand { display: block; }
+.tap-cue { font-size: 0.58rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-top: 6px; }
+
+/* ─── ANALOGY BOX ────────────────────────── */
+.analogy {
+  background: var(--gold-pale);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.74rem;
+  color: #5C4010;
+  line-height: 1.65;
+}
+.analogy-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+/* ─── STEPS ──────────────────────────────── */
+.steps { list-style: none; margin-top: 10px; }
+.steps li {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 7px; font-size: 0.76rem; color: #4a4a4a; line-height: 1.55;
+}
+.step-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ink); color: var(--gold-mid);
+  font-size: 0.6rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* ─── STOCK TYPE CHIPS ───────────────────── */
+.type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.type-chip {
+  border-radius: 8px; padding: 12px 14px;
+  border: 1px solid; cursor: pointer;
+  transition: box-shadow 0.18s;
+}
+.type-chip:hover { box-shadow: var(--shadow-md); }
+.type-chip.blue { background: #F0F4FF; border-color: #C5D0F0; }
+.type-chip.green { background: var(--green-pale); border-color: #B8DCCA; }
+.tc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.tc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.tc-name { font-size: 0.76rem; font-weight: 700; }
+.type-chip.blue .tc-name { color: #2A40A0; }
+.type-chip.green .tc-name { color: var(--green-gain); }
+.tc-desc { font-size: 0.72rem; line-height: 1.55; }
+.type-chip.blue .tc-desc { color: #3A4A80; }
+.type-chip.green .tc-desc { color: #2A5438; }
+.tc-more { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.7rem; line-height: 1.5; }
+.type-chip.open .tc-more { display: block; }
+
+/* ─── EXAMPLE STRIP ──────────────────────── */
+.example-strip {
+  background: var(--ink);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+.ex-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.ex-row {
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 7px;
+  padding: 8px 14px;
+  margin-bottom: 6px;
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.7);
+}
+.ex-row:last-child { margin-bottom: 0; }
+.ex-value { font-weight: 700; color: white; }
+.badge-gain {
+  background: rgba(26,107,65,0.3);
+  color: #5CCC8A;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 4px;
+  border: 1px solid rgba(92,204,138,0.25);
+}
+
+/* ─── TIPS / MISTAKES ────────────────────── */
+.tips-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 540px) { .tips-row { grid-template-columns: 1fr; } }
+.tips-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--rule);
+}
+.tips-card-title {
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 7px;
+}
+.tips-card-title .dot { width: 6px; height: 6px; border-radius: 50%; }
+.tip-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; font-size: 0.74rem; color: #444; line-height: 1.55; }
+.tip-mark { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; margin-top: 1px; }
+.tip-mark.yes { background: var(--green-pale); color: var(--green-gain); }
+.tip-mark.no { background: var(--red-pale); color: var(--red-loss); }
+
+/* ─── TAKEAWAYS ──────────────────────────── */
+.takeaways {
+  background: var(--ink);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.tk {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(184,137,42,0.25);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  flex: 1; min-width: 140px;
+}
+.tk::before { content: '— '; color: var(--gold); font-weight: 700; }
+
+/* ─── FOOTER ─────────────────────────────── */
+footer {
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 22px;
+  font-size: 0.64rem;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.06em;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer .author { color: var(--gold); }
+
+/* ─── ANIMATIONS ─────────────────────────── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.card, .def-item, .card-dark { animation: fadeUp 0.4s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="brand">Wealth Cycle Trading</div>
+  <div class="header-right">
+    <span class="sheet-num">Sheet 1 / 4</span>
+    <span class="sheet-tag">Foundation</span>
+  </div>
+</header>
+
+<!-- HERO with SVG chart -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="kicker">Beginner Series · The Foundation</div>
+    <h1>Stock Market<br>Basics</h1>
+    <p>What a stock is, how the market works, and how ordinary people grow wealth over time — explained plainly.</p>
+  </div>
+  <div class="hero-chart">
+    <!-- SVG: Upward trending line chart -->
+    <svg width="160" height="90" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <lineargradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#D4A84B" stop-opacity="0.35"></stop>
+          <stop offset="100%" stop-color="#D4A84B" stop-opacity="0"></stop>
+        </lineargradient>
+      </defs>
+      <!-- Grid lines -->
+      <line x1="0" y1="72" x2="160" y2="72" stroke="rgba(255,255,255,0.08)" stroke-width="1"></line>
+      <line x1="0" y1="48" x2="160" y2="48" stroke="rgba(255,255,255,0.08)" stroke-width="1"></line>
+      <line x1="0" y1="24" x2="160" y2="24" stroke="rgba(255,255,255,0.08)" stroke-width="1"></line>
+      <!-- Area fill -->
+      <path d="M 8 72 L 22 65 L 36 61 L 50 55 L 64 52 L 78 44 L 92 38 L 106 30 L 120 22 L 134 15 L 148 8 L 148 86 L 8 86 Z" fill="url(#lineGrad)"></path>
+      <!-- Line -->
+      <polyline points="8,72 22,65 36,61 50,55 64,52 78,44 92,38 106,30 120,22 134,15 148,8" stroke="#D4A84B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <!-- Dot at end -->
+      <circle cx="148" cy="8" r="3.5" fill="#D4A84B"></circle>
+      <!-- Year labels -->
+      <text x="8" y="88" font-family="Plus Jakarta Sans" font-size="9" fill="rgba(255,255,255,0.3)">Year 1</text>
+      <text x="116" y="88" font-family="Plus Jakarta Sans" font-size="9" fill="rgba(255,255,255,0.3)">Today</text>
+    </svg>
+  </div>
+</div>
+
+<main>
+
+<!-- QUICK DEFINITIONS -->
+<div class="label gold-line">Quick Definitions — tap each to expand</div>
+<div class="def-row">
+  <div class="def-item" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="10" rx="2" stroke="#B8892A" stroke-width="1.5"></rect><path d="M7 14v2M13 14v2M5 16h10" stroke="#B8892A" stroke-width="1.5" stroke-linecap="round"></path><path d="M7 8h6M7 10.5h4" stroke="#B8892A" stroke-width="1.2" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="def-term">Stock</div>
+    <div class="def-desc">A small ownership piece of a company.</div>
+    <div class="def-expand">Buying stock = buying a tiny slice of that business. If the company grows, your slice is worth more.</div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="def-item" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="6" height="10" rx="1" fill="#B8892A" opacity="0.3"></rect><rect x="11" y="8" width="6" height="7" rx="1" fill="#B8892A" opacity="0.6"></rect><rect x="3" y="3" width="14" height="2" rx="1" fill="#B8892A"></rect></svg>
+    </div>
+    <div class="def-term">Shares</div>
+    <div class="def-desc">Individual units of stock you can buy.</div>
+    <div class="def-expand">If a stock is a pizza, each slice is a share. Own 10 shares = own 10 slices of the company.</div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="def-item" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#B8892A" stroke-width="1.5"></circle><path d="M10 6v4l3 2" stroke="#B8892A" stroke-width="1.5" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="def-term">Market</div>
+    <div class="def-desc">The open marketplace where stocks trade.</div>
+    <div class="def-expand">Think of it like eBay — but instead of products, millions of buyers and sellers trade pieces of companies all day long.</div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="def-item" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#B8892A" stroke-width="1.5"></circle><path d="M10 7.5c-1.1 0-2 .7-2 1.6 0 .9.9 1.4 2 1.6 1.1.2 2 .7 2 1.6 0 .9-.9 1.6-2 1.6M10 7V6M10 14v1" stroke="#B8892A" stroke-width="1.3" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="def-term">Portfolio</div>
+    <div class="def-desc">All your investments combined.</div>
+    <div class="def-expand">Your portfolio is your investment collection. Diversifying it — owning many different stocks — reduces your overall risk.</div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+</div>
+
+<!-- HOW THE MARKET WORKS + HOW PEOPLE MAKE MONEY -->
+<div class="row row-2">
+  <div class="card">
+    <div class="card-accent-line"></div>
+    <div class="card-title">How the Market Works</div>
+    <div class="card-body">
+      Companies sell shares to raise money. Anyone can then buy and sell those shares on an exchange — like the NYSE or Nasdaq.
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        Think of a farmers market. Sellers list produce; buyers pick what they want. Popular items rise in price. Unpopular ones drop. Stocks work the same way — demand drives price.
+      </div>
+      <ul class="steps">
+        <li><span class="step-num">1</span>Company lists shares to raise money</li>
+        <li><span class="step-num">2</span>Investors buy those shares through a broker</li>
+        <li><span class="step-num">3</span>Prices shift daily based on supply and demand</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-accent-line" style="background:var(--green-gain)"></div>
+    <div class="card-title">How People Make Money</div>
+    <div class="card-body">
+      The core idea: <strong>buy low, sell high.</strong> You also earn from dividends — cash companies pay just for holding their stock.
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        You buy limited sneakers for $100. Demand surges. You sell for $180. That $80 is your profit. Stocks work identically — the "sneaker" is a company share.
+      </div>
+      <!-- Mini SVG: buy → hold → sell -->
+      <svg width="100%" height="44" viewBox="0 0 280 44" fill="none" style="margin-top:10px;">
+        <rect x="0" y="10" width="64" height="24" rx="5" fill="#EBF5EF"></rect>
+        <text x="32" y="27" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#1A6B41">Buy $50</text>
+        <path d="M68 22 L86 22" stroke="#ccc" stroke-width="1.5" stroke-dasharray="3,2"></path>
+        <polygon points="86,18 94,22 86,26" fill="#ccc"></polygon>
+        <rect x="96" y="10" width="64" height="24" rx="5" fill="#F7EDD4"></rect>
+        <text x="128" y="27" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="600" fill="#7A5810">Hold &amp; Wait</text>
+        <path d="M164 22 L182 22" stroke="#ccc" stroke-width="1.5" stroke-dasharray="3,2"></path>
+        <polygon points="182,18 190,22 182,26" fill="#ccc"></polygon>
+        <rect x="192" y="10" width="80" height="24" rx="5" fill="#EBF5EF"></rect>
+        <text x="232" y="21" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="10" font-weight="700" fill="#1A6B41">Sell $80</text>
+        <text x="232" y="31" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="8.5" fill="#1A6B41">+$30 profit</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- TYPES OF STOCKS with SVG icons -->
+<div class="card" style="margin-bottom:14px;">
+  <div class="card-title">Types of Stocks — Tap Each to Learn More</div>
+  <div class="card-body">Different stocks have different risk and reward profiles. Two types beginners should know first:</div>
+  <div class="type-grid">
+    <div class="type-chip blue" onclick="this.classList.toggle(&#39;open&#39;)">
+      <div class="tc-header">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="2" stroke="#2A40A0" stroke-width="1.4"></rect><path d="M5 6V5a4 4 0 118 0v1" stroke="#2A40A0" stroke-width="1.4"></path><circle cx="9" cy="11" r="1.5" fill="#2A40A0"></circle></svg>
+        <span class="tc-name">Blue Chip Stocks</span>
+      </div>
+      <div class="tc-desc">Large, established companies (Apple, Coca-Cola, Microsoft). Stable, reliable, often pay dividends.</div>
+      <div class="tc-more">These are the "blue-ribbon" companies of the stock world. They've survived recessions, they pay dividends regularly, and they don't swing wildly. Perfect starting point for beginners. Lower reward — but far lower risk.</div>
+    </div>
+    <div class="type-chip green" onclick="this.classList.toggle(&#39;open&#39;)">
+      <div class="tc-header">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V5M9 5L5 9M9 5l4 4" stroke="#1A6B41" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 14h12" stroke="#1A6B41" stroke-width="1.4" stroke-linecap="round"></path></svg>
+        <span class="tc-name">Growth Stocks</span>
+      </div>
+      <div class="tc-desc">Younger companies expanding fast. Higher potential gain — but prices swing more dramatically.</div>
+      <div class="tc-more">Like backing a new restaurant getting rave reviews. Could explode in value — or stumble badly. These suit investors who can handle volatility and have a longer time horizon. Not ideal as your first and only pick.</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXAMPLE -->
+<div class="example-strip">
+  <div class="ex-title">Worked Example — Your First Investment</div>
+  <!-- Inline SVG mini chart -->
+  <svg width="100%" height="50" viewBox="0 0 340 50" preserveAspectRatio="none" fill="none" style="margin-bottom:10px;display:block;">
+    <defs>
+      <lineargradient id="exGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5CCC8A" stop-opacity="0.3"></stop>
+        <stop offset="100%" stop-color="#5CCC8A" stop-opacity="0"></stop>
+      </lineargradient>
+    </defs>
+    <path d="M 0 42 L 40 40 L 80 36 L 120 30 L 160 26 L 200 20 L 240 14 L 280 8 L 320 4 L 340 2 L 340 50 L 0 50 Z" fill="url(#exGrad)"></path>
+    <polyline points="0,42 40,40 80,36 120,30 160,26 200,20 240,14 280,8 320,4 340,2" stroke="#5CCC8A" stroke-width="1.8" fill="none" stroke-linecap="round"></polyline>
+    <circle cx="0" cy="42" r="3" fill="#B8892A"></circle>
+    <circle cx="340" cy="2" r="3" fill="#5CCC8A"></circle>
+    <text x="4" y="14" font-family="Plus Jakarta Sans" font-size="9" fill="rgba(255,255,255,0.4)">Buy: $20/share</text>
+    <text x="260" y="14" font-family="Plus Jakarta Sans" font-size="9" fill="#5CCC8A">Sell: $35/share</text>
+  </svg>
+  <div class="ex-row">
+    <span>Buy 5 shares of Company X at $20 each</span>
+    <span class="ex-value">Cost: $100</span>
+  </div>
+  <div class="ex-row">
+    <span>6 months later — stock rises to $35/share</span>
+    <span class="ex-value">Value: $175</span>
+  </div>
+  <div class="ex-row">
+    <span>You sell all 5 shares</span>
+    <span class="badge-gain">+$75 profit &nbsp;(75% return)</span>
+  </div>
+</div>
+
+<!-- TIPS + MISTAKES -->
+<div class="tips-row">
+  <div class="tips-card">
+    <div class="tips-card-title" style="color:var(--green-gain)"><div class="dot" style="background:var(--green-gain)"></div>Pro Tips</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Start with as little as $10 — the habit matters more than the amount</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Spread across multiple companies, never bet everything on one</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Check if the company is actually profitable before buying</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Long-term investors almost always outperform short-term traders</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Use apps like Fidelity or Schwab — both free to open</div>
+  </div>
+  <div class="tips-card">
+    <div class="tips-card-title" style="color:var(--red-loss)"><div class="dot" style="background:var(--red-loss)"></div>Common Mistakes</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Panic selling when prices dip temporarily</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Buying based on social media hype alone</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Investing money you need in the next 6 months</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Refreshing your portfolio every hour — it changes nothing</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Expecting overnight wealth — this takes time</div>
+  </div>
+</div>
+
+<!-- TAKEAWAYS -->
+<div class="label" style="margin-top:2px;">Key Takeaways</div>
+<div class="takeaways">
+  <div class="tk">A stock = owning a real piece of a real company</div>
+  <div class="tk">Buy low, sell high — or hold long for compounding growth</div>
+  <div class="tk">Start small, diversify early, and never risk money you need</div>
+  <div class="tk">Blue chips = stable. Growth stocks = higher risk, higher reward.</div>
+  <div class="tk">Patience is the most underrated edge in investing</div>
+</div>
+
+</main>
+
+<footer>
+  <span>Wealth Cycle Trading &nbsp;·&nbsp; Sheet 1 of 4 — Beginner Basics</span>
+  <span class="author">Authored by J. Lawrence</span>
+</footer>
+
+
+
+</body></html>

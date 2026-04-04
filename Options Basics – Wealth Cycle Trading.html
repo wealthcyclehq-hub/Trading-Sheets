@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)file:///C:/Users/jorda/Downloads/sheet2_options_basics.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Options Basics – Wealth Cycle Trading</title>
+<link href="./Options Basics – Wealth Cycle Trading_files/css2" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E1520;
+  --paper: #FAFAF7;
+  --rule: #E4E0D8;
+  --muted: #7A7468;
+  --gold: #B8892A;
+  --gold-pale: #F7EDD4;
+  --gold-mid: #D4A84B;
+  --indigo: #2C3580;
+  --indigo-pale: #EEF0FA;
+  --indigo-mid: #4A55BE;
+  --coral: #B84040;
+  --coral-pale: #FBF0F0;
+  --teal: #1E6868;
+  --teal-pale: #EBF6F6;
+  --amber: #9A6010;
+  --amber-pale: #FFF7EC;
+  --green-gain: #1A6B41;
+  --green-pale: #EBF5EF;
+  --shadow-sm: 0 1px 4px rgba(14,21,32,0.06), 0 4px 16px rgba(14,21,32,0.04);
+  --shadow-md: 0 2px 8px rgba(14,21,32,0.08), 0 8px 32px rgba(14,21,32,0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+header {
+  background: var(--ink);
+  padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.brand { font-family: 'Fraunces', serif; color: var(--gold-mid); font-size: 1rem; font-weight: 700; letter-spacing: 0.03em; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.sheet-num { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.sheet-tag { background: var(--indigo-mid); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+
+.hero {
+  background: linear-gradient(135deg, #141830 0%, #232862 100%);
+  padding: 32px 28px 28px;
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+@media (max-width: 560px) { .hero { grid-template-columns: 1fr; } .hero-chart { display:none; } }
+.hero-text .kicker { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.hero-text h1 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+.hero-text p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 420px; }
+.hero-pills { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 4px 10px; font-size: 0.65rem; color: rgba(255,255,255,0.6); font-weight: 500; }
+.pill strong { color: var(--gold-mid); }
+
+main { padding: 22px 20px 12px; max-width: 920px; margin: 0 auto; }
+
+.label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.card-dark { background: var(--ink); border-radius: 10px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.06); }
+.card-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.card-body { font-size: 0.76rem; color: #4a4a4a; line-height: 1.7; }
+.card-top-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 10px 10px 0 0; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 580px) { .row-2 { grid-template-columns: 1fr; } }
+.row-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+@media (max-width: 700px) { .row-4 { grid-template-columns: 1fr 1fr; } }
+
+/* OPTIONS INTRO */
+.option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+@media (max-width: 540px) { .option-cards { grid-template-columns: 1fr; } }
+.option-card {
+  border-radius: 10px; padding: 16px 18px; border: 1px solid;
+  position: relative; overflow: hidden;
+}
+.option-card.call { background: var(--green-pale); border-color: #B8DCCA; }
+.option-card.put { background: var(--coral-pale); border-color: #EBBABA; }
+.opt-type { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px; }
+.option-card.call .opt-type { color: var(--green-gain); }
+.option-card.put .opt-type { color: var(--coral); }
+.opt-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.option-card.call .opt-title { color: #164E30; }
+.option-card.put .opt-title { color: #7A2020; }
+.opt-body { font-size: 0.74rem; line-height: 1.6; }
+.option-card.call .opt-body { color: #2A5A3A; }
+.option-card.put .opt-body { color: #6A2828; }
+.analogy { background: rgba(255,255,255,0.6); border-left: 3px solid; border-radius: 0 7px 7px 0; padding: 9px 12px; margin-top: 10px; font-size: 0.72rem; line-height: 1.6; }
+.option-card.call .analogy { border-color: var(--green-gain); color: #1A4A28; }
+.option-card.put .analogy { border-color: var(--coral); color: #5A1818; }
+.analogy-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; opacity: 0.6; }
+
+/* PAYOFF DIAGRAM */
+.payoff-wrap { margin-top: 14px; }
+.payoff-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+
+/* GREEKS */
+.greek-card {
+  background: #fff; border-radius: 10px; padding: 15px 17px;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--rule);
+  cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.greek-card:hover { border-color: var(--indigo-mid); box-shadow: 0 0 0 3px rgba(74,85,190,0.08); }
+.greek-card.open { border-color: var(--indigo-mid); }
+.greek-sym {
+  font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 900;
+  margin-bottom: 4px;
+}
+.greek-name { font-weight: 700; font-size: 0.78rem; color: var(--ink); margin-bottom: 2px; }
+.greek-short { font-size: 0.68rem; color: var(--muted); line-height: 1.4; }
+.greek-detail { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rule); font-size: 0.72rem; color: #444; line-height: 1.6; }
+.greek-card.open .greek-detail { display: block; }
+.greek-plain { background: var(--indigo-pale); border-radius: 6px; padding: 7px 10px; margin-top: 7px; font-size: 0.7rem; color: var(--indigo); font-weight: 500; line-height: 1.5; }
+.tap-cue { font-size: 0.58rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-top: 6px; }
+
+/* IV SECTION */
+.iv-card { background: var(--ink); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+.iv-top { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; margin-bottom: 14px; }
+.iv-title { font-family: 'Fraunces', serif; font-size: 1rem; color: var(--gold-mid); margin-bottom: 5px; }
+.iv-body { font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+.iv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 540px) { .iv-grid { grid-template-columns: 1fr; } .iv-top { grid-template-columns: 1fr; } }
+.iv-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 11px 13px; }
+.iv-item-title { font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,0.5); margin-bottom: 5px; letter-spacing: 0.06em; text-transform: uppercase; }
+.iv-item-val { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 2px; }
+.iv-item-desc { font-size: 0.7rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+.iv-bar { height: 5px; border-radius: 100px; margin-top: 6px; }
+
+/* ITM / OTM */
+.money-card { background: #fff; border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.money-spectrum {
+  display: flex; border-radius: 8px; overflow: hidden; height: 36px; margin: 12px 0 6px;
+  font-size: 0.68rem; font-weight: 700;
+}
+.ms-itm { flex: 1; background: #EBF5EF; color: var(--green-gain); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; }
+.ms-atm { flex: 0 0 80px; background: #FFF7EC; color: var(--amber); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; border-left: 1px solid #E8D8BC; border-right: 1px solid #E8D8BC; }
+.ms-otm { flex: 1; background: var(--coral-pale); color: var(--coral); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; }
+.ms-sub { font-size: 0.58rem; font-weight: 400; opacity: 0.7; }
+
+/* STRIKE PRICES */
+.strike-card { background: #fff; border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.steps { list-style: none; margin-top: 9px; }
+.steps li { display: flex; gap: 9px; align-items: flex-start; margin-bottom: 7px; font-size: 0.74rem; color: #4a4a4a; line-height: 1.55; }
+.step-num { width: 20px; height: 20px; border-radius: 50%; background: var(--ink); color: var(--gold-mid); font-size: 0.6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+/* TIPS */
+.tips-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 540px) { .tips-row { grid-template-columns: 1fr; } }
+.tips-card { background: #fff; border-radius: 10px; padding: 15px 17px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.tips-head { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.tip-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; font-size: 0.73rem; color: #444; line-height: 1.55; }
+.tip-mark { flex-shrink: 0; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.58rem; font-weight: 800; margin-top: 2px; }
+.tip-mark.yes { background: var(--green-pale); color: var(--green-gain); }
+.tip-mark.no { background: var(--coral-pale); color: var(--coral); }
+
+/* TAKEAWAYS */
+.takeaways { background: var(--ink); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tk { background: rgba(255,255,255,0.04); border: 1px solid rgba(184,137,42,0.25); border-radius: 6px; padding: 7px 12px; font-size: 0.71rem; color: rgba(255,255,255,0.72); line-height: 1.5; flex: 1; min-width: 140px; }
+.tk::before { content: '— '; color: var(--gold); font-weight: 700; }
+
+footer { background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 11px 22px; font-size: 0.64rem; color: rgba(255,255,255,0.28); letter-spacing: 0.06em; border-top: 1px solid rgba(255,255,255,0.06); }
+footer .author { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Wealth Cycle Trading</div>
+  <div class="header-right">
+    <span class="sheet-num">Sheet 2 / 4</span>
+    <span class="sheet-tag">Options</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="kicker">Options Series · Getting Started</div>
+    <h1>Options<br>Basics</h1>
+    <p>Options give you the right to buy or sell a stock at a set price — without being forced to. More control, less capital required.</p>
+    <div class="hero-pills">
+      <div class="pill"><strong>Call</strong> = Right to Buy</div>
+      <div class="pill"><strong>Put</strong> = Right to Sell</div>
+      <div class="pill"><strong>Premium</strong> = What You Pay</div>
+      <div class="pill"><strong>Expiration</strong> = Deadline</div>
+    </div>
+  </div>
+  <div class="hero-chart">
+    <!-- SVG: Options payoff hockey-stick -->
+    <svg width="150" height="90" viewBox="0 0 150 90" fill="none">
+      <defs>
+        <lineargradient id="profitGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5CCC8A" stop-opacity="0.4"></stop>
+          <stop offset="100%" stop-color="#5CCC8A" stop-opacity="0"></stop>
+        </lineargradient>
+      </defs>
+      <!-- Axes -->
+      <line x1="20" y1="8" x2="20" y2="78" stroke="rgba(255,255,255,0.2)" stroke-width="1"></line>
+      <line x1="20" y1="58" x2="145" y2="58" stroke="rgba(255,255,255,0.2)" stroke-width="1"></line>
+      <!-- Zero line label -->
+      <text x="2" y="62" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.35)">0</text>
+      <text x="22" y="88" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.35)">Strike</text>
+      <!-- Loss zone -->
+      <path d="M 20 70 L 82 70 L 82 58 L 20 58 Z" fill="rgba(184,64,64,0.15)"></path>
+      <!-- Profit zone -->
+      <path d="M 82 58 L 145 14 L 145 58 Z" fill="url(#profitGrad)"></path>
+      <!-- Hockey stick line -->
+      <polyline points="20,70 82,70 82,58 145,14" stroke="#D4A84B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <!-- Labels -->
+      <text x="28" y="68" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.4)">Max Loss</text>
+      <text x="96" y="30" font-family="Plus Jakarta Sans" font-size="8" fill="#5CCC8A">Profit ↑</text>
+      <!-- Strike dot -->
+      <circle cx="82" cy="58" r="2.5" fill="#D4A84B"></circle>
+    </svg>
+  </div>
+</div>
+
+<main>
+
+<!-- CALLS & PUTS -->
+<div class="label">What Are Options? — Two Types</div>
+<div class="option-cards">
+  <div class="option-card call">
+    <div class="opt-type">Call Option</div>
+    <div class="opt-title">Right to Buy</div>
+    <div class="opt-body">
+      You pay a small fee (premium) for the right to buy a stock at a locked-in price, before a set deadline. If the stock goes up — you profit.
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        You put a $500 deposit on a house listed at $300K. If the house rises to $350K, you still buy at $300K. Your deposit secured a profit.
+      </div>
+    </div>
+    <!-- Mini call payoff -->
+    <svg width="100%" height="36" viewBox="0 0 200 36" fill="none" style="margin-top:10px;">
+      <line x1="0" y1="28" x2="200" y2="28" stroke="rgba(26,107,65,0.2)" stroke-width="1"></line>
+      <polyline points="0,28 80,28 80,20 200,4" stroke="#1A6B41" stroke-width="2" fill="none" stroke-linecap="round"></polyline>
+      <text x="2" y="36" font-family="Plus Jakarta Sans" font-size="8" fill="#1A6B41" opacity="0.6">flat loss</text>
+      <text x="130" y="12" font-family="Plus Jakarta Sans" font-size="8" fill="#1A6B41">growing profit →</text>
+    </svg>
+  </div>
+  <div class="option-card put">
+    <div class="opt-type">Put Option</div>
+    <div class="opt-title">Right to Sell</div>
+    <div class="opt-body">
+      You pay a premium for the right to sell a stock at a set price. If the stock drops — your put goes up in value. It's essentially insurance.
+      <div class="analogy">
+        <div class="analogy-label">Analogy</div>
+        Car insurance. You pay a monthly fee. If an accident happens, you're covered. Puts protect your investment against stock price drops.
+      </div>
+    </div>
+    <!-- Mini put payoff -->
+    <svg width="100%" height="36" viewBox="0 0 200 36" fill="none" style="margin-top:10px;">
+      <line x1="0" y1="28" x2="200" y2="28" stroke="rgba(184,64,64,0.2)" stroke-width="1"></line>
+      <polyline points="0,4 120,4 120,12 200,28" stroke="#B84040" stroke-width="2" fill="none" stroke-linecap="round"></polyline>
+      <text x="2" y="12" font-family="Plus Jakarta Sans" font-size="8" fill="#B84040">profit if drops →</text>
+      <text x="138" y="36" font-family="Plus Jakarta Sans" font-size="8" fill="#B84040" opacity="0.6">flat loss</text>
+    </svg>
+  </div>
+</div>
+
+<!-- THE GREEKS -->
+<div class="label">The Greeks — Tap Each to Expand</div>
+<div class="row-4">
+  <div class="greek-card" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="greek-sym" style="color:var(--indigo-mid)">Δ</div>
+    <div class="greek-name">Delta</div>
+    <div class="greek-short">How much your option moves when the stock moves $1</div>
+    <div class="greek-detail">
+      Delta of 0.50 means if the stock rises $1, your option gains ~$0.50. Higher delta = more tied to the stock price.
+      <div class="greek-plain">Plain English: Delta = your option's "sensitivity" to stock movement.</div>
+    </div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="greek-card" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="greek-sym" style="color:var(--teal)">Γ</div>
+    <div class="greek-name">Gamma</div>
+    <div class="greek-short">How quickly Delta itself is changing</div>
+    <div class="greek-detail">
+      Gamma accelerates your gains (and losses) as the stock moves. Highest near expiration.
+      <div class="greek-plain" style="background:var(--teal-pale);color:var(--teal);">Plain English: Gamma = the "speed" of Delta. High gamma = fast-shifting sensitivity.</div>
+    </div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="greek-card" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="greek-sym" style="color:var(--coral)">Θ</div>
+    <div class="greek-name">Theta</div>
+    <div class="greek-short">How much value you lose per day from time passing</div>
+    <div class="greek-detail">
+      Every day that passes, your option loses value — even if the stock doesn't move. The closer to expiration, the faster the decay.
+      <div class="greek-plain" style="background:var(--coral-pale);color:var(--coral);">Plain English: Theta = the daily "rental cost" of holding an option. Time is your enemy.</div>
+    </div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+  <div class="greek-card" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="greek-sym" style="color:var(--amber)">V</div>
+    <div class="greek-name">Vega</div>
+    <div class="greek-short">How much expected market turbulence affects your option</div>
+    <div class="greek-detail">
+      When markets expect big swings, option prices go up. Vega measures this sensitivity to expected movement.
+      <div class="greek-plain" style="background:var(--amber-pale);color:var(--amber);">Plain English: Vega = how much "nervousness in the market" raises your option's price.</div>
+    </div>
+    <div class="tap-cue">Tap to expand ↓</div>
+  </div>
+</div>
+
+<!-- IMPLIED VOLATILITY -->
+<div class="iv-card">
+  <div class="iv-top">
+    <div>
+      <div class="iv-title">Implied Volatility (IV)</div>
+      <div class="iv-body">IV is the market's forecast for how wildly a stock might swing in the future. Think of it like a weather confidence rating — high IV means "expect a storm." When IV is high, options cost more.</div>
+    </div>
+    <!-- IV Gauge SVG -->
+    <svg width="90" height="56" viewBox="0 0 90 56" fill="none" style="flex-shrink:0;">
+      <path d="M 10 50 A 35 35 0 0 1 80 50" stroke="rgba(255,255,255,0.1)" stroke-width="6" fill="none" stroke-linecap="round"></path>
+      <path d="M 10 50 A 35 35 0 0 1 45 15" stroke="#D4A84B" stroke-width="6" fill="none" stroke-linecap="round"></path>
+      <path d="M 45 50 L 28 22" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+      <circle cx="45" cy="50" r="4" fill="white"></circle>
+      <text x="6" y="56" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.35)">Low</text>
+      <text x="68" y="56" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.35)">High</text>
+    </svg>
+  </div>
+  <div class="iv-grid">
+    <div class="iv-item">
+      <div class="iv-item-title">Low IV</div>
+      <div class="iv-item-val" style="color:#5CCC8A">Calm</div>
+      <div class="iv-item-desc">Market is quiet. Options are cheaper. Usually a better time to buy options.</div>
+      <div class="iv-bar" style="background:linear-gradient(90deg,rgba(92,204,138,0.2),rgba(92,204,138,0.05));"></div>
+      <div class="iv-bar" style="width:25%;background:#5CCC8A;margin-top:-5px;"></div>
+    </div>
+    <div class="iv-item">
+      <div class="iv-item-title">High IV</div>
+      <div class="iv-item-val" style="color:#E07070">Volatile</div>
+      <div class="iv-item-desc">Market is nervous. Options are expensive. Usually a better time to sell options.</div>
+      <div class="iv-bar" style="background:linear-gradient(90deg,rgba(224,112,112,0.2),rgba(224,112,112,0.05));"></div>
+      <div class="iv-bar" style="width:82%;background:#E07070;margin-top:-5px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STRIKE PRICES + ITM/OTM -->
+<div class="row-2">
+  <div class="strike-card card">
+    <div class="card-top-bar" style="background:var(--indigo-mid)"></div>
+    <div class="card-title">Strike Prices</div>
+    <div class="card-body">
+      The strike price is the price you agree to buy or sell the stock at. It's locked in when you purchase the option.
+    </div>
+    <!-- Strike SVG diagram -->
+    <svg width="100%" height="46" viewBox="0 0 260 46" fill="none" style="margin:10px 0;">
+      <rect x="0" y="14" width="80" height="18" rx="4" fill="#EBF5EF" stroke="#B8DCCA" stroke-width="1"></rect>
+      <text x="40" y="27" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#1A6B41">ITM Strike $45</text>
+      <rect x="90" y="14" width="80" height="18" rx="4" fill="#FFF7EC" stroke="#E8D8BC" stroke-width="1"></rect>
+      <text x="130" y="27" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="600" fill="#9A6010">ATM Strike $50</text>
+      <rect x="180" y="14" width="80" height="18" rx="4" fill="#FBF0F0" stroke="#EBBABA" stroke-width="1"></rect>
+      <text x="220" y="27" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="9" font-weight="700" fill="#B84040">OTM Strike $60</text>
+      <!-- Arrow -->
+      <line x1="0" y1="44" x2="260" y2="44" stroke="#ccc" stroke-width="1"></line>
+      <polygon points="256,41 260,44 256,47" fill="#ccc"></polygon>
+      <text x="100" y="43" font-family="Plus Jakarta Sans" font-size="8" fill="#999">Current Stock: $50</text>
+    </svg>
+    <ul class="steps">
+      <li><span class="step-num">1</span>Closer to current price = safer, but costs more premium</li>
+      <li><span class="step-num">2</span>Further away = cheaper premium, but needs bigger move to profit</li>
+      <li><span class="step-num">3</span>For beginners: start at-the-money (ATM) or in-the-money (ITM)</li>
+    </ul>
+  </div>
+
+  <div class="money-card card">
+    <div class="card-top-bar" style="background:var(--gold)"></div>
+    <div class="card-title">In, At &amp; Out of the Money</div>
+    <div class="card-body">Describes where the stock price sits relative to your strike. Determines whether your option has value right now.</div>
+    <div class="money-spectrum">
+      <div class="ms-itm">
+        <span>ITM</span>
+        <span class="ms-sub">Has value now</span>
+      </div>
+      <div class="ms-atm">
+        <span>ATM</span>
+        <span class="ms-sub">At the line</span>
+      </div>
+      <div class="ms-otm">
+        <span>OTM</span>
+        <span class="ms-sub">Not yet</span>
+      </div>
+    </div>
+    <div style="font-size:0.7rem;color:var(--muted);margin-bottom:8px;line-height:1.5;">Stock must move past the strike for OTM to become profitable</div>
+    <!-- Explanation rows -->
+    <div style="display:flex;flex-direction:column;gap:5px;">
+      <div style="background:var(--green-pale);border-radius:6px;padding:6px 10px;font-size:0.7rem;color:#1A4A28;line-height:1.5;"><strong>ITM Call:</strong> Strike below current price. Already profitable to exercise.</div>
+      <div style="background:var(--amber-pale);border-radius:6px;padding:6px 10px;font-size:0.7rem;color:#6A3800;line-height:1.5;"><strong>ATM:</strong> Strike = stock price. Balanced — most sensitive to movement.</div>
+      <div style="background:var(--coral-pale);border-radius:6px;padding:6px 10px;font-size:0.7rem;color:#7A2020;line-height:1.5;"><strong>OTM Call:</strong> Strike above current price. Needs the stock to rise to gain value.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPS + MISTAKES -->
+<div class="tips-row">
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--green-gain)"><div class="dot" style="background:var(--green-gain)"></div>Pro Tips</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Always give yourself plenty of time — at least 30–60 days minimum</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Your max loss is only what you paid (the premium) — know it before buying</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Start with calls on stocks you already understand well</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Paper trade first — practice on paper before using real money</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Buy options when IV is low — they're cheaper and better value</div>
+  </div>
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--coral)"><div class="dot" style="background:var(--coral)"></div>Common Mistakes</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Buying weekly options expiring in days — Theta destroys them fast</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Ignoring Theta — your option loses value every single day</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Buying during high IV events like earnings — you're overpaying</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Risking more than you can lose on one position</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Confusing the premium cost with the stock's total value</div>
+  </div>
+</div>
+
+<!-- TAKEAWAYS -->
+<div class="label">Key Takeaways</div>
+<div class="takeaways">
+  <div class="tk">Calls = right to buy. Puts = right to sell. Premium = your max loss.</div>
+  <div class="tk">Delta tells you sensitivity. Theta tells you the daily cost of waiting.</div>
+  <div class="tk">Buy options when IV is low. Sell when IV is high.</div>
+  <div class="tk">Strike price is your locked-in price. Closer = safer but pricier.</div>
+  <div class="tk">ITM has value now. OTM needs the stock to move to catch up.</div>
+</div>
+
+</main>
+<footer>
+  <span>Wealth Cycle Trading &nbsp;·&nbsp; Sheet 2 of 4 — Options Basics</span>
+  <span class="author">Authored by J. Lawrence</span>
+</footer>
+
+
+</body></html>

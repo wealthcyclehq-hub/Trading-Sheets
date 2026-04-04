@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/jorda/Downloads/sheet4_indicators.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indicators &amp; Patterns – Wealth Cycle Trading</title>
+<link href="./Indicators &amp; Patterns – Wealth Cycle Trading_files/css2" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E1520;
+  --paper: #F6F8FC;
+  --rule: #DDE4EE;
+  --muted: #6878A0;
+  --gold: #B8892A;
+  --gold-mid: #D4A84B;
+  --gold-pale: #F7EDD4;
+  --blue: #1A2E6A;
+  --blue-mid: #2E4CAE;
+  --blue-light: #EEF2FD;
+  --blue-bright: #4A6ADE;
+  --teal: #1A5858;
+  --teal-mid: #2A8080;
+  --teal-pale: #EAF5F5;
+  --green-gain: #1A6B41;
+  --green-pale: #EBF5EF;
+  --red-loss: #B03030;
+  --red-pale: #FAEAEA;
+  --amber: #9A6010;
+  --amber-pale: #FFF7EC;
+  --coral: #B84040;
+  --coral-pale: #FBF0F0;
+  --shadow-sm: 0 1px 4px rgba(14,21,32,0.06), 0 4px 16px rgba(14,21,32,0.04);
+  --shadow-md: 0 2px 8px rgba(14,21,32,0.08), 0 8px 32px rgba(14,21,32,0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+header { background: var(--blue); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.brand { font-family: 'Fraunces', serif; color: var(--gold-mid); font-size: 1rem; font-weight: 700; letter-spacing: 0.03em; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.sheet-num { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.sheet-tag { background: var(--blue-mid); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; }
+
+.hero {
+  background: linear-gradient(135deg, #0A1440 0%, #182060 60%, #2038A8 100%);
+  padding: 32px 28px 26px;
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+@media (max-width: 560px) { .hero { grid-template-columns: 1fr; } .hero-chart { display:none; } }
+.kicker { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.hero h1 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+.hero p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 400px; }
+.hero-pills { display: flex; gap: 7px; margin-top: 13px; flex-wrap: wrap; }
+.pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 3px 9px; font-size: 0.63rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+
+main { padding: 22px 20px 12px; max-width: 920px; margin: 0 auto; }
+
+.label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.card-dark { background: var(--blue); border-radius: 10px; padding: 18px 20px; border: 1px solid rgba(255,255,255,0.06); }
+.card-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+.card-body { font-size: 0.76rem; color: #444; line-height: 1.7; }
+.card-top-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 10px 10px 0 0; }
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 580px) { .row-2 { grid-template-columns: 1fr; } }
+
+/* QUICK DEFS */
+.def-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
+@media (max-width: 600px) { .def-row { grid-template-columns: 1fr 1fr; } }
+.def-item { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 14px 15px; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; }
+.def-item:hover { border-color: var(--blue-bright); box-shadow: 0 0 0 3px rgba(74,106,222,0.08); }
+.def-item.open { border-color: var(--blue-bright); }
+.def-icon-wrap { width: 34px; height: 34px; border-radius: 7px; background: var(--blue-light); display: flex; align-items: center; justify-content: center; margin-bottom: 9px; }
+.def-term { font-weight: 700; font-size: 0.8rem; color: var(--ink); margin-bottom: 3px; }
+.def-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.5; }
+.def-expand { display: none; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--rule); font-size: 0.7rem; color: #555; line-height: 1.55; }
+.def-item.open .def-expand { display: block; }
+.tap-cue { font-size: 0.57rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-top: 5px; display: block; }
+
+.analogy { border-left: 3px solid; border-radius: 0 8px 8px 0; padding: 9px 13px; margin: 9px 0; font-size: 0.73rem; line-height: 1.65; }
+.analogy-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+
+/* INDICATOR CARDS */
+.ind-card { background: #fff; border-radius: 10px; padding: 16px 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.ind-badge { display: inline-flex; align-items: center; justify-content: center; height: 26px; padding: 0 10px; border-radius: 5px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; margin-bottom: 8px; }
+.ind-title { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
+.ind-subtitle { font-size: 0.67rem; color: var(--muted); margin-bottom: 8px; }
+.ind-body { font-size: 0.74rem; color: #444; line-height: 1.65; }
+
+/* RSI SCALE */
+.rsi-bar { display: flex; border-radius: 7px; overflow: hidden; height: 32px; font-size: 0.66rem; font-weight: 700; margin: 10px 0 4px; }
+.rsi-low { flex: 3; background: #EBF5EF; color: var(--green-gain); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; }
+.rsi-mid { flex: 4; background: var(--amber-pale); color: var(--amber); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; border-left: 1px solid #E8D8BC; border-right: 1px solid #E8D8BC; }
+.rsi-high { flex: 3; background: var(--coral-pale); color: var(--coral); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1px; }
+.rsi-sub { font-size: 0.58rem; font-weight: 400; opacity: 0.65; }
+.rsi-labels { display: flex; justify-content: space-between; font-size: 0.58rem; color: var(--muted); padding: 0 2px; }
+
+/* PATTERNS */
+.patterns-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+@media (max-width: 540px) { .patterns-row { grid-template-columns: 1fr; } }
+.pattern-card { border-radius: 10px; padding: 15px 17px; border: 1px solid; cursor: pointer; transition: box-shadow 0.18s; }
+.pattern-card:hover { box-shadow: var(--shadow-md); }
+.pattern-card.breakout { background: var(--blue-light); border-color: #C5D0F0; }
+.pattern-card.pullback { background: var(--amber-pale); border-color: #E8D8BC; }
+.pt-type { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px; }
+.pattern-card.breakout .pt-type { color: var(--blue-mid); }
+.pattern-card.pullback .pt-type { color: var(--amber); }
+.pt-title { font-weight: 700; font-size: 0.82rem; margin-bottom: 5px; }
+.pattern-card.breakout .pt-title { color: var(--blue); }
+.pattern-card.pullback .pt-title { color: #6A3800; }
+.pt-body { font-size: 0.73rem; line-height: 1.6; }
+.pattern-card.breakout .pt-body { color: #2A3A7A; }
+.pattern-card.pullback .pt-body { color: #5A3800; }
+.pt-more { display: none; margin-top: 9px; padding-top: 9px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.7rem; line-height: 1.55; }
+.pattern-card.open .pt-more { display: block; }
+.tap-cue { font-size: 0.57rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-top: 6px; display: block; }
+
+/* COMBOS */
+.combo-card { background: var(--blue); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+.combo-title { font-family: 'Fraunces', serif; font-size: 0.95rem; color: var(--gold-mid); margin-bottom: 12px; }
+.combo-item { display: flex; gap: 10px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 7px; padding: 9px 12px; margin-bottom: 7px; }
+.combo-item:last-child { margin-bottom: 0; }
+.combo-num { width: 22px; height: 22px; border-radius: 50%; background: rgba(212,168,75,0.15); border: 1px solid rgba(212,168,75,0.3); color: var(--gold-mid); font-size: 0.63rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.combo-text { font-size: 0.74rem; color: rgba(255,255,255,0.65); line-height: 1.55; }
+.combo-text strong { color: rgba(255,255,255,0.9); }
+
+/* TIPS */
+.tips-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 540px) { .tips-row { grid-template-columns: 1fr; } }
+.tips-card { background: #fff; border-radius: 10px; padding: 15px 17px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.tips-head { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.tip-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; font-size: 0.73rem; color: #444; line-height: 1.55; }
+.tip-mark { flex-shrink: 0; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.58rem; font-weight: 800; margin-top: 2px; }
+.tip-mark.yes { background: var(--green-pale); color: var(--green-gain); }
+.tip-mark.no { background: var(--coral-pale); color: var(--coral); }
+
+/* TAKEAWAYS */
+.takeaways { background: var(--blue); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tk { background: rgba(255,255,255,0.04); border: 1px solid rgba(184,137,42,0.25); border-radius: 6px; padding: 7px 12px; font-size: 0.71rem; color: rgba(255,255,255,0.72); line-height: 1.5; flex: 1; min-width: 140px; }
+.tk::before { content: '— '; color: var(--gold); font-weight: 700; }
+
+footer { background: var(--blue); display: flex; align-items: center; justify-content: space-between; padding: 11px 22px; font-size: 0.64rem; color: rgba(255,255,255,0.28); letter-spacing: 0.06em; border-top: 1px solid rgba(255,255,255,0.06); }
+footer .author { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Wealth Cycle Trading</div>
+  <div class="header-right">
+    <span class="sheet-num">Sheet 4 / 4</span>
+    <span class="sheet-tag">Technical</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="kicker">Technical Analysis · Reading the Chart</div>
+    <h1>Indicators &amp;<br>Patterns</h1>
+    <p>Charts tell stories. These tools help you read them — without needing to use all of them at once.</p>
+    <div class="hero-pills">
+      <div class="pill">Moving Averages</div>
+      <div class="pill">VWAP</div>
+      <div class="pill">RSI</div>
+      <div class="pill">Support &amp; Resistance</div>
+      <div class="pill">Breakouts · Pullbacks</div>
+    </div>
+  </div>
+  <div class="hero-chart">
+    <!-- SVG: CANDLESTICK CHART with MA line overlay -->
+    <svg width="160" height="100" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Grid lines -->
+      <line x1="0" y1="80" x2="160" y2="80" stroke="rgba(255,255,255,0.07)" stroke-width="1"></line>
+      <line x1="0" y1="55" x2="160" y2="55" stroke="rgba(255,255,255,0.07)" stroke-width="1"></line>
+      <line x1="0" y1="30" x2="160" y2="30" stroke="rgba(255,255,255,0.07)" stroke-width="1"></line>
+      <!-- Candlesticks: wick, body (x, top-wick, bot-wick, open, close) -->
+      <!-- Candle 1 red -->
+      <line x1="12" y1="72" x2="12" y2="84" stroke="#E07070" stroke-width="1"></line>
+      <rect x="8" y="74" width="8" height="7" rx="1" fill="#E07070"></rect>
+      <!-- Candle 2 green -->
+      <line x1="28" y1="68" x2="28" y2="78" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="24" y="70" width="8" height="6" rx="1" fill="#5CCC8A"></rect>
+      <!-- Candle 3 red -->
+      <line x1="44" y1="70" x2="44" y2="80" stroke="#E07070" stroke-width="1"></line>
+      <rect x="40" y="72" width="8" height="5" rx="1" fill="#E07070"></rect>
+      <!-- Candle 4 green big -->
+      <line x1="60" y1="58" x2="60" y2="74" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="56" y="61" width="8" height="11" rx="1" fill="#5CCC8A"></rect>
+      <!-- Candle 5 green -->
+      <line x1="76" y1="50" x2="76" y2="64" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="72" y="52" width="8" height="10" rx="1" fill="#5CCC8A"></rect>
+      <!-- Candle 6 red -->
+      <line x1="92" y1="46" x2="92" y2="58" stroke="#E07070" stroke-width="1"></line>
+      <rect x="88" y="48" width="8" height="8" rx="1" fill="#E07070"></rect>
+      <!-- Candle 7 green big -->
+      <line x1="108" y1="34" x2="108" y2="50" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="104" y="36" width="8" height="12" rx="1" fill="#5CCC8A"></rect>
+      <!-- Candle 8 green -->
+      <line x1="124" y1="24" x2="124" y2="38" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="120" y="26" width="8" height="10" rx="1" fill="#5CCC8A"></rect>
+      <!-- Candle 9 red -->
+      <line x1="140" y1="20" x2="140" y2="34" stroke="#E07070" stroke-width="1"></line>
+      <rect x="136" y="22" width="8" height="9" rx="1" fill="#E07070"></rect>
+      <!-- Candle 10 green -->
+      <line x1="156" y1="10" x2="156" y2="24" stroke="#5CCC8A" stroke-width="1"></line>
+      <rect x="152" y="12" width="8" height="10" rx="1" fill="#5CCC8A"></rect>
+      <!-- MA line (50-day) -->
+      <polyline points="12,80 28,76 44,74 60,68 76,60 92,54 108,46 124,36 140,28 156,18" stroke="#D4A84B" stroke-width="1.5" fill="none" stroke-dasharray="3,2" stroke-linecap="round"></polyline>
+      <!-- MA label -->
+      <text x="2" y="96" font-family="Plus Jakarta Sans" font-size="7.5" fill="rgba(255,255,255,0.3)">Candles + MA line</text>
+    </svg>
+  </div>
+</div>
+
+<main>
+
+<!-- QUICK DEFS -->
+<div class="label">Quick Definitions — Tap Each to Expand</div>
+<div class="def-row">
+  <div class="def-item open" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14l4-5 3 3 5-7" stroke="#2E4CAE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="def-term">Indicator</div>
+    <div class="def-desc">A formula applied to price data to reveal trends.</div>
+    <div class="def-expand">Think of indicators like a car dashboard — they don't drive for you, but speed, fuel, and temperature all help you make smarter decisions.</div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+  <div class="def-item open" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="10" width="3" height="5" rx="1" fill="#2E4CAE" opacity="0.5"></rect><rect x="7.5" y="6" width="3" height="9" rx="1" fill="#2E4CAE" opacity="0.75"></rect><rect x="12" y="3" width="3" height="12" rx="1" fill="#2E4CAE"></rect></svg>
+    </div>
+    <div class="def-term">Pattern</div>
+    <div class="def-desc">A repeating chart shape that signals what may happen next.</div>
+    <div class="def-expand">Like clouds that look like animals — certain price shapes appear repeatedly and often foreshadow what's coming. Patterns are tendencies, not guarantees.</div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+  <div class="def-item open" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 12h12" stroke="#1A6B41" stroke-width="1.5" stroke-linecap="round"></path><path d="M7 8l4 4" stroke="#1A6B41" stroke-width="1.2" stroke-dasharray="1.5,1.5"></path><circle cx="9" cy="6" r="2" fill="#1A6B41" opacity="0.3" stroke="#1A6B41" stroke-width="1.2"></circle></svg>
+    </div>
+    <div class="def-term">Support</div>
+    <div class="def-desc">A price level the stock tends to bounce up from.</div>
+    <div class="def-expand">Like a trampoline floor. The stock falls, hits the level, bounces back. Buyers historically step in here and stop the drop.</div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+  <div class="def-item open" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="def-icon-wrap">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 6h12" stroke="#B84040" stroke-width="1.5" stroke-linecap="round"></path><path d="M7 10l4-4" stroke="#B84040" stroke-width="1.2" stroke-dasharray="1.5,1.5"></path><circle cx="9" cy="12" r="2" fill="#B84040" opacity="0.3" stroke="#B84040" stroke-width="1.2"></circle></svg>
+    </div>
+    <div class="def-term">Resistance</div>
+    <div class="def-desc">A price ceiling the stock struggles to break above.</div>
+    <div class="def-expand">Like a glass ceiling. Every time the stock climbs to this level, sellers push it back down. Until one day — it breaks through and surges.</div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+</div>
+
+<!-- MAIN INDICATORS -->
+<div class="label">The 3 Key Indicators</div>
+<div class="row-2" style="grid-template-columns:1fr 1fr;">
+  <!-- MOVING AVERAGES -->
+  <div class="ind-card">
+    <div class="card-top-bar" style="background:var(--gold)"></div>
+    <div class="ind-badge" style="background:var(--gold-pale);color:var(--amber)">MA</div>
+    <div class="ind-title">Moving Averages</div>
+    <div class="ind-subtitle">Average price over a set number of days</div>
+    <div class="ind-body">
+      A moving average smooths out daily noise and shows the overall direction the stock is heading. Look at where the stock is relative to the line.
+      <!-- REAL candlestick + MA SVG -->
+      <svg width="100%" height="72" viewBox="0 0 260 72" fill="none" style="margin:10px 0 6px;display:block;">
+        <!-- Background -->
+        <rect width="260" height="72" rx="6" fill="#F6F8FC"></rect>
+        <!-- Grid -->
+        <line x1="0" y1="16" x2="260" y2="16" stroke="#E4E0D8" stroke-width="0.5"></line>
+        <line x1="0" y1="36" x2="260" y2="36" stroke="#E4E0D8" stroke-width="0.5"></line>
+        <line x1="0" y1="56" x2="260" y2="56" stroke="#E4E0D8" stroke-width="0.5"></line>
+        <!-- Candlesticks -->
+        <g>
+          <line x1="14" y1="55" x2="14" y2="64" stroke="#E07070" stroke-width="1"></line><rect x="10" y="57" width="8" height="5" rx="1" fill="#E07070"></rect>
+          <line x1="30" y1="50" x2="30" y2="60" stroke="#5CCC8A" stroke-width="1"></line><rect x="26" y="52" width="8" height="6" rx="1" fill="#5CCC8A"></rect>
+          <line x1="46" y1="52" x2="46" y2="62" stroke="#E07070" stroke-width="1"></line><rect x="42" y="54" width="8" height="6" rx="1" fill="#E07070"></rect>
+          <line x1="62" y1="40" x2="62" y2="54" stroke="#5CCC8A" stroke-width="1"></line><rect x="58" y="43" width="8" height="9" rx="1" fill="#5CCC8A"></rect>
+          <line x1="78" y1="34" x2="78" y2="46" stroke="#5CCC8A" stroke-width="1"></line><rect x="74" y="36" width="8" height="8" rx="1" fill="#5CCC8A"></rect>
+          <line x1="94" y1="36" x2="94" y2="46" stroke="#E07070" stroke-width="1"></line><rect x="90" y="38" width="8" height="6" rx="1" fill="#E07070"></rect>
+          <line x1="110" y1="26" x2="110" y2="38" stroke="#5CCC8A" stroke-width="1"></line><rect x="106" y="28" width="8" height="8" rx="1" fill="#5CCC8A"></rect>
+          <line x1="126" y1="18" x2="126" y2="30" stroke="#5CCC8A" stroke-width="1"></line><rect x="122" y="20" width="8" height="8" rx="1" fill="#5CCC8A"></rect>
+          <line x1="142" y1="20" x2="142" y2="30" stroke="#E07070" stroke-width="1"></line><rect x="138" y="22" width="8" height="6" rx="1" fill="#E07070"></rect>
+          <line x1="158" y1="14" x2="158" y2="24" stroke="#5CCC8A" stroke-width="1"></line><rect x="154" y="16" width="8" height="7" rx="1" fill="#5CCC8A"></rect>
+          <line x1="174" y1="10" x2="174" y2="20" stroke="#5CCC8A" stroke-width="1"></line><rect x="170" y="12" width="8" height="7" rx="1" fill="#5CCC8A"></rect>
+          <line x1="190" y1="14" x2="190" y2="24" stroke="#E07070" stroke-width="1"></line><rect x="186" y="16" width="8" height="6" rx="1" fill="#E07070"></rect>
+          <line x1="206" y1="8" x2="206" y2="18" stroke="#5CCC8A" stroke-width="1"></line><rect x="202" y="10" width="8" height="7" rx="1" fill="#5CCC8A"></rect>
+          <line x1="222" y1="6" x2="222" y2="16" stroke="#5CCC8A" stroke-width="1"></line><rect x="218" y="8" width="8" height="7" rx="1" fill="#5CCC8A"></rect>
+          <line x1="238" y1="10" x2="238" y2="20" stroke="#E07070" stroke-width="1"></line><rect x="234" y="12" width="8" height="6" rx="1" fill="#E07070"></rect>
+          <line x1="254" y1="4" x2="254" y2="14" stroke="#5CCC8A" stroke-width="1"></line><rect x="250" y="6" width="8" height="7" rx="1" fill="#5CCC8A"></rect>
+        </g>
+        <!-- 50-day MA line -->
+        <polyline points="14,61 30,56 46,57 62,48 78,42 94,42 110,34 126,26 142,26 158,20 174,16 190,18 206,14 222,12 238,14 254,10" stroke="#D4A84B" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <!-- Labels -->
+        <text x="4" y="70" font-family="Plus Jakarta Sans" font-size="7.5" fill="#B8892A" font-weight="600">— 50-Day MA</text>
+        <text x="130" y="70" font-family="Plus Jakarta Sans" font-size="7" fill="#888">Uptrend: Stock stays above line</text>
+      </svg>
+      <div class="analogy" style="background:#FFF8F0;border-color:var(--gold);color:#5C3A00;">
+        <div class="analogy-label" style="color:var(--gold);">Weather Analogy</div>
+        Instead of caring about Tuesday's exact temperature, you look at the 30-day average to know if seasons are changing. MAs do the same for price.
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <div style="flex:1;background:#EEF2FD;border-radius:6px;padding:7px 9px;font-size:0.7rem;color:var(--blue);line-height:1.5;"><strong>50-day MA</strong> — Medium trend</div>
+        <div style="flex:1;background:var(--gold-pale);border-radius:6px;padding:7px 9px;font-size:0.7rem;color:var(--amber);line-height:1.5;"><strong>200-day MA</strong> — Long trend</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RSI + VWAP stacked -->
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <!-- VWAP -->
+    <div class="ind-card">
+      <div class="card-top-bar" style="background:var(--teal-mid)"></div>
+      <div class="ind-badge" style="background:var(--teal-pale);color:var(--teal)">VWAP</div>
+      <div class="ind-title">VWAP</div>
+      <div class="ind-subtitle">Volume Weighted Average Price — resets daily</div>
+      <div class="ind-body">
+        The average price everyone has paid today, weighted by how many shares traded at each level. Resets every market open.
+        <!-- VWAP diagram -->
+        <svg width="100%" height="48" viewBox="0 0 240 48" fill="none" style="margin:9px 0 4px;display:block;">
+          <rect width="240" height="48" rx="5" fill="#EAF5F5"></rect>
+          <!-- Price range bars -->
+          <rect x="8" y="8" width="224" height="24" rx="3" fill="rgba(42,128,128,0.08)"></rect>
+          <!-- VWAP line -->
+          <line x1="8" y1="22" x2="232" y2="22" stroke="#2A8080" stroke-width="1.5" stroke-dasharray="4,2"></line>
+          <!-- Above zone label -->
+          <rect x="14" y="10" width="80" height="10" rx="2" fill="rgba(26,107,65,0.15)"></rect>
+          <text x="54" y="19" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="8" fill="#1A6B41" font-weight="600">Above VWAP — buyers in control</text>
+          <!-- Below zone label -->
+          <rect x="14" y="24" width="80" height="10" rx="2" fill="rgba(184,64,64,0.12)"></rect>
+          <text x="54" y="33" text-anchor="middle" font-family="Plus Jakarta Sans" font-size="8" fill="#B84040" font-weight="600">Below VWAP — sellers in control</text>
+          <!-- VWAP label -->
+          <text x="162" y="20" font-family="Plus Jakarta Sans" font-size="8" fill="#2A8080" font-weight="700">← VWAP line</text>
+          <text x="8" y="45" font-family="Plus Jakarta Sans" font-size="7.5" fill="var(--muted)">Ideal: trade in direction of where price sits vs VWAP</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- RSI -->
+    <div class="ind-card">
+      <div class="card-top-bar" style="background:var(--blue-bright)"></div>
+      <div class="ind-badge" style="background:var(--blue-light);color:var(--blue-mid)">RSI</div>
+      <div class="ind-title">RSI — Relative Strength Index</div>
+      <div class="ind-subtitle">Scale 0–100 · Shows if a stock is overextended</div>
+      <div class="ind-body">
+        <!-- RSI oscillator SVG -->
+        <svg width="100%" height="40" viewBox="0 0 240 40" fill="none" style="display:block;margin-bottom:8px;">
+          <rect width="240" height="40" rx="5" fill="#F6F8FC"></rect>
+          <!-- Overbought zone -->
+          <rect x="0" y="0" width="240" height="10" rx="0" fill="rgba(184,64,64,0.08)"></rect>
+          <!-- Oversold zone -->
+          <rect x="0" y="30" width="240" height="10" fill="rgba(26,107,65,0.08)"></rect>
+          <!-- RSI line (wavy, crosses zones) -->
+          <polyline points="0,22 20,24 40,18 60,14 80,8 100,12 120,20 140,26 160,30 180,34 200,28 220,18 240,14" stroke="#4A6ADE" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <!-- Overbought line -->
+          <line x1="0" y1="10" x2="240" y2="10" stroke="#B84040" stroke-width="0.8" stroke-dasharray="3,2"></line>
+          <!-- Oversold line -->
+          <line x1="0" y1="30" x2="240" y2="30" stroke="#1A6B41" stroke-width="0.8" stroke-dasharray="3,2"></line>
+          <!-- Labels -->
+          <text x="3" y="9" font-family="Plus Jakarta Sans" font-size="7" fill="#B84040">70 — Overbought</text>
+          <text x="3" y="38" font-family="Plus Jakarta Sans" font-size="7" fill="#1A6B41">30 — Oversold</text>
+        </svg>
+        <div class="rsi-bar">
+          <div class="rsi-low">0–30 <span class="rsi-sub">Oversold</span></div>
+          <div class="rsi-mid">30–70 <span class="rsi-sub">Normal</span></div>
+          <div class="rsi-high">70–100 <span class="rsi-sub">Overbought</span></div>
+        </div>
+        <div class="rsi-labels"><span>Possible buy zone</span><span>Watch &amp; wait</span><span>Possible caution</span></div>
+        <div style="font-size:0.69rem;color:var(--muted);margin-top:6px;line-height:1.5;">⚠️ RSI is a signal, not a rule. Always confirm with other indicators.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPORT & RESISTANCE -->
+<div class="card" style="margin-bottom:14px;">
+  <div class="card-top-bar" style="background:linear-gradient(90deg,var(--green-gain),var(--red-loss))"></div>
+  <div class="card-title">Support &amp; Resistance — Price Floors and Ceilings</div>
+  <div class="card-body">
+    These are invisible price levels where buyers and sellers have historically battled. Stocks tend to bounce at support and stall at resistance.
+  </div>
+  <!-- S&R SVG diagram -->
+  <svg width="100%" height="88" viewBox="0 0 520 88" fill="none" style="margin:12px 0 6px;display:block;">
+    <rect width="520" height="88" rx="7" fill="#F6F8FC"></rect>
+    <!-- Resistance zone -->
+    <rect x="0" y="6" width="520" height="14" rx="0" fill="rgba(184,64,64,0.07)"></rect>
+    <line x1="0" y1="13" x2="520" y2="13" stroke="#B84040" stroke-width="1.2" stroke-dasharray="5,3"></line>
+    <text x="8" y="11" font-family="Plus Jakarta Sans" font-size="8" fill="#B84040" font-weight="700">RESISTANCE $72</text>
+    <!-- Support zone -->
+    <rect x="0" y="68" width="520" height="14" rx="0" fill="rgba(26,107,65,0.07)"></rect>
+    <line x1="0" y1="75" x2="520" y2="75" stroke="#1A6B41" stroke-width="1.2" stroke-dasharray="5,3"></line>
+    <text x="8" y="73" font-family="Plus Jakarta Sans" font-size="8" fill="#1A6B41" font-weight="700">SUPPORT $54</text>
+    <!-- Price oscillating between levels -->
+    <polyline points="0,68 40,52 80,38 120,24 130,14 150,24 190,40 230,52 260,68 300,52 340,38 380,20 400,14 430,22 460,36 500,52 520,60" stroke="#2E4CAE" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+    <!-- Bounce annotations -->
+    <circle cx="260" cy="68" r="3" fill="#1A6B41"></circle>
+    <circle cx="400" cy="14" r="3" fill="#B84040"></circle>
+    <text x="240" y="86" font-family="Plus Jakarta Sans" font-size="7.5" fill="#1A6B41">Bounce from support</text>
+    <text x="370" y="11" font-family="Plus Jakarta Sans" font-size="7.5" fill="#B84040">Rejected at resistance</text>
+    <!-- Current price label -->
+    <text x="440" y="62" font-family="Plus Jakarta Sans" font-size="7.5" fill="#2E4CAE" font-weight="600">Current price $60</text>
+  </svg>
+  <div style="font-size:0.73rem;color:#444;line-height:1.6;">🔑 When the stock <strong>breaks through resistance</strong> with high volume — that old ceiling often becomes the new floor. This is called a <strong>breakout</strong>, and it often signals a strong move higher.</div>
+</div>
+
+<!-- PATTERNS -->
+<div class="label">Basic Patterns — Tap Each to Expand</div>
+<div class="patterns-row">
+  <div class="pattern-card breakout" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="pt-type">Bullish Setup</div>
+    <div class="pt-title">Breakout Pattern</div>
+    <!-- Breakout mini chart -->
+    <svg width="100%" height="44" viewBox="0 0 200 44" fill="none" style="margin:8px 0;">
+      <!-- Resistance line -->
+      <line x1="0" y1="22" x2="200" y2="22" stroke="#B84040" stroke-width="1" stroke-dasharray="4,2"></line>
+      <text x="4" y="20" font-family="Plus Jakarta Sans" font-size="7.5" fill="#B84040">Resistance</text>
+      <!-- Price oscillating then breaking through -->
+      <polyline points="0,34 20,28 40,22 50,26 70,22 80,26 100,22 110,18 130,10 160,6 200,4" stroke="#2E4CAE" stroke-width="1.6" fill="none" stroke-linecap="round"></polyline>
+      <!-- Volume bars at bottom -->
+      <rect x="95" y="36" width="6" height="7" rx="1" fill="#5CCC8A" opacity="0.5"></rect>
+      <rect x="105" y="33" width="6" height="10" rx="1" fill="#5CCC8A" opacity="0.7"></rect>
+      <rect x="115" y="30" width="6" height="13" rx="1" fill="#5CCC8A"></rect>
+      <text x="90" y="44" font-family="Plus Jakarta Sans" font-size="7" fill="#1A6B41">Volume ↑ confirms breakout</text>
+    </svg>
+    <div class="pt-body">When price pushes above a resistance level it has tested multiple times — often signals a strong move upward.</div>
+    <div class="pt-more">
+      <strong>How to spot it:</strong> Stock hits the same ceiling 2–3 times. Then volume surges as price closes above it. That's your breakout signal.<br><br>
+      <strong>Key rule:</strong> Low-volume breakouts are often false — always check that volume increases to confirm.
+    </div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+  <div class="pattern-card pullback" onclick="this.classList.toggle(&#39;open&#39;)">
+    <div class="pt-type">Opportunity Setup</div>
+    <div class="pt-title">Pullback Pattern</div>
+    <!-- Pullback mini chart -->
+    <svg width="100%" height="44" viewBox="0 0 200 44" fill="none" style="margin:8px 0;">
+      <!-- MA line -->
+      <polyline points="0,38 40,30 80,22 120,16 160,12 200,10" stroke="#D4A84B" stroke-width="1" stroke-dasharray="3,2" fill="none"></polyline>
+      <!-- Price dips then recovers -->
+      <polyline points="0,38 30,28 60,20 80,14 95,20 110,26 120,24 140,16 170,10 200,6" stroke="#2E4CAE" stroke-width="1.6" fill="none" stroke-linecap="round"></polyline>
+      <!-- Pullback zone highlight -->
+      <rect x="78" y="12" width="44" height="16" rx="3" fill="rgba(154,96,16,0.12)"></rect>
+      <text x="88" y="26" font-family="Plus Jakarta Sans" font-size="7.5" fill="#9A6010" font-weight="600">Pullback</text>
+      <text x="4" y="42" font-family="Plus Jakarta Sans" font-size="7.5" fill="#D4A84B">— MA line (support)</text>
+    </svg>
+    <div class="pt-body">After rising, the stock temporarily drops before continuing upward. Pullbacks are normal — and often excellent entry points.</div>
+    <div class="pt-more">
+      <strong>How to spot it:</strong> Uptrending stock drops 5–10% briefly. RSI may dip. Price may touch the moving average before bouncing back.<br><br>
+      <strong>Beginner tip:</strong> Don't panic when you see this in a stock you own. It's often the stock "catching its breath" before continuing higher.
+    </div>
+    <span class="tap-cue">Tap to expand ↓</span>
+  </div>
+</div>
+
+<!-- COMBOS -->
+<div class="combo-card">
+  <div class="combo-title">How Beginners Combine Indicators</div>
+  <div class="combo-item">
+    <div class="combo-num">1</div>
+    <div class="combo-text"><strong>MA + Support:</strong> Stock is above the 50-day MA and bouncing off a support level → potential setup worth watching</div>
+  </div>
+  <div class="combo-item">
+    <div class="combo-num">2</div>
+    <div class="combo-text"><strong>RSI + VWAP:</strong> RSI under 35 (oversold) and stock trading above VWAP → possible bounce opportunity with two confirmations</div>
+  </div>
+  <div class="combo-item">
+    <div class="combo-num">3</div>
+    <div class="combo-text"><strong>Breakout + Volume spike:</strong> Price closes above resistance and volume surges → stronger confirmation that the move is real</div>
+  </div>
+  <div style="background:rgba(212,168,75,0.1);border:1px solid rgba(212,168,75,0.2);border-radius:6px;padding:8px 12px;margin-top:10px;font-size:0.73rem;color:var(--gold-mid);line-height:1.5;">
+    Golden Rule: Use 2–3 indicators maximum. More indicators means more noise — not more accuracy.
+  </div>
+</div>
+
+<!-- TIPS + MISTAKES -->
+<div class="tips-row">
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--green-gain)"><div class="dot" style="background:var(--green-gain)"></div>Pro Tips</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Master one indicator fully before adding a second</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Check both daily and weekly charts for the bigger picture</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Let indicators confirm your idea — never force a trade</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Volume confirms everything — a signal without volume is weak</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Use TradingView (free) to practice reading real charts</div>
+  </div>
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--coral)"><div class="dot" style="background:var(--coral)"></div>Common Mistakes</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Using 5+ indicators at once — this creates "analysis paralysis"</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Treating RSI 70+ as an automatic sell — trends can stay overbought</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Ignoring volume — it validates or cancels every signal</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Only looking at short-term charts — zoom out for context</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Basing a full trade decision on one indicator alone</div>
+  </div>
+</div>
+
+<!-- TAKEAWAYS -->
+<div class="label">Key Takeaways</div>
+<div class="takeaways">
+  <div class="tk">MA shows trend direction — stock above line = uptrend in play</div>
+  <div class="tk">VWAP = daily fair value. Above it signals buyer strength.</div>
+  <div class="tk">RSI below 30 = possible buy zone. Above 70 = caution zone.</div>
+  <div class="tk">Support = floor. Resistance = ceiling. Breakouts = opportunity.</div>
+  <div class="tk">Use 2–3 indicators max — always confirm signals with volume</div>
+</div>
+
+</main>
+<footer>
+  <span>Wealth Cycle Trading &nbsp;·&nbsp; Sheet 4 of 4 — Indicators &amp; Patterns</span>
+  <span class="author">Authored by J. Lawrence</span>
+</footer>
+
+
+</body></html>

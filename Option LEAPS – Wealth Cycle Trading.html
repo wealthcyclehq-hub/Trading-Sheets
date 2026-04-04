@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/jorda/Downloads/sheet3_leaps.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option LEAPS – Wealth Cycle Trading</title>
+<link href="./Option LEAPS – Wealth Cycle Trading_files/css2" rel="stylesheet">
+<style>
+:root {
+  --ink: #0E1520;
+  --paper: #F8FAF8;
+  --rule: #DDE8E0;
+  --muted: #6A7A70;
+  --gold: #B8892A;
+  --gold-mid: #D4A84B;
+  --gold-pale: #F7EDD4;
+  --forest: #163D26;
+  --forest-mid: #2A6442;
+  --forest-light: #EAF4EE;
+  --forest-border: #B8D8C4;
+  --sage: #4A7A5A;
+  --amber: #9A6010;
+  --amber-pale: #FFF7EC;
+  --coral: #B84040;
+  --coral-pale: #FBF0F0;
+  --green-gain: #1A6B41;
+  --green-pale: #EBF5EF;
+  --shadow-sm: 0 1px 4px rgba(14,21,32,0.06), 0 4px 16px rgba(14,21,32,0.04);
+  --shadow-md: 0 2px 8px rgba(14,21,32,0.08), 0 8px 32px rgba(14,21,32,0.06);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+header { background: var(--forest); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.brand { font-family: 'Fraunces', serif; color: var(--gold-mid); font-size: 1rem; font-weight: 700; letter-spacing: 0.03em; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.sheet-num { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.sheet-tag { background: var(--forest-mid); color: #fff; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.15); }
+
+.hero {
+  background: linear-gradient(135deg, var(--forest) 0%, #1E5C34 60%, #2A7048 100%);
+  padding: 32px 28px 26px;
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; right: -30px; top: -30px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.03); }
+@media (max-width: 560px) { .hero { grid-template-columns: 1fr; } .hero-chart { display:none; } }
+.hero-text .kicker { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.hero-text h1 { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 8px; }
+.hero-text p { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 400px; }
+.acronym-row { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+.ac-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 4px 10px; font-size: 0.64rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+.ac-pill strong { color: var(--gold-mid); }
+
+main { padding: 22px 20px 12px; max-width: 920px; margin: 0 auto; }
+
+.label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+.card { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); position: relative; overflow: hidden; }
+.card-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+.card-body { font-size: 0.76rem; color: #444; line-height: 1.7; }
+.card-top-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 10px 10px 0 0; }
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 560px) { .row-2 { grid-template-columns: 1fr; } }
+
+/* WHAT ARE LEAPS — 3 PILLARS */
+.pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+@media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  background: var(--forest);
+  border-radius: 10px; padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.pillar-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; }
+.pillar-title { font-weight: 700; font-size: 0.82rem; color: var(--gold-mid); }
+.pillar-desc { font-size: 0.73rem; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+/* ANALOGY */
+.analogy { background: var(--gold-pale); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0; font-size: 0.74rem; color: #5C4010; line-height: 1.65; }
+.analogy-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+
+/* TIMELINE */
+.timeline-card { background: #fff; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.tl-wrap { position: relative; padding: 14px 0 0; }
+.tl-line { position: absolute; top: 22px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--coral) 0%, var(--amber) 30%, var(--forest-mid) 70%, var(--forest) 100%); }
+.tl-items { display: flex; justify-content: space-between; position: relative; }
+.tl-item { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 2px currentColor; z-index: 1; }
+.tl-above { font-size: 0.65rem; font-weight: 700; text-align: center; margin-bottom: 4px; }
+.tl-below { font-size: 0.6rem; color: var(--muted); text-align: center; margin-top: 4px; line-height: 1.4; }
+.tl-badge { font-size: 0.58rem; font-weight: 700; padding: 2px 6px; border-radius: 3px; margin-top: 2px; }
+
+/* PICKER (SAFER VS RISKIER) */
+.picker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+@media (max-width: 540px) { .picker-grid { grid-template-columns: 1fr; } }
+.picker-card { border-radius: 9px; padding: 14px 16px; border: 1px solid; cursor: pointer; transition: box-shadow 0.18s; }
+.picker-card:hover { box-shadow: var(--shadow-md); }
+.picker-card.safe { background: var(--forest-light); border-color: var(--forest-border); }
+.picker-card.risky { background: var(--coral-pale); border-color: #EBBABA; }
+.pc-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.pc-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; }
+.picker-card.safe .pc-tag { background: rgba(26,107,65,0.12); color: var(--green-gain); }
+.picker-card.risky .pc-tag { background: rgba(184,64,64,0.1); color: var(--coral); }
+.pc-title { font-weight: 700; font-size: 0.8rem; }
+.picker-card.safe .pc-title { color: var(--forest); }
+.picker-card.risky .pc-title { color: #7A2020; }
+.pc-rows { display: flex; flex-direction: column; gap: 4px; }
+.pc-row { display: flex; gap: 6px; font-size: 0.72rem; align-items: baseline; }
+.picker-card.safe .pc-row { color: #1E4A30; }
+.picker-card.risky .pc-row { color: #6A2020; }
+.pc-bullet { font-size: 0.6rem; flex-shrink: 0; margin-top: 2px; }
+.pc-more { display: none; margin-top: 10px; padding-top: 9px; border-top: 1px solid rgba(0,0,0,0.08); font-size: 0.7rem; line-height: 1.55; }
+.picker-card.open .pc-more { display: block; }
+.tap-cue { font-size: 0.58rem; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; margin-top: 7px; display: block; }
+
+/* EXAMPLE WALKTHROUGH */
+.example-dark { background: var(--forest); border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+.ex-title { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+.ex-steps { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.ex-step { display: flex; gap: 10px; }
+.ex-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(212,168,75,0.15); border: 1px solid rgba(212,168,75,0.3); color: var(--gold-mid); font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.ex-text { font-size: 0.75rem; color: rgba(255,255,255,0.7); line-height: 1.6; padding-top: 2px; }
+.ex-text strong { color: rgba(255,255,255,0.95); }
+.ex-result { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 7px; padding: 10px 14px; }
+.er-label { font-size: 0.74rem; color: rgba(255,255,255,0.55); }
+.badge-gain { background: rgba(26,107,65,0.35); color: #5CCC8A; font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 5px; border: 1px solid rgba(92,204,138,0.25); }
+
+/* PATIENCE BLOCK */
+.patience { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; background: var(--gold-pale); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; border: 1px solid rgba(184,137,42,0.2); }
+.patience-icon { width: 44px; height: 44px; }
+.patience-title { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
+.patience-body { font-size: 0.74rem; color: #4A3010; line-height: 1.65; }
+
+/* TIPS */
+.tips-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+@media (max-width: 540px) { .tips-row { grid-template-columns: 1fr; } }
+.tips-card { background: #fff; border-radius: 10px; padding: 15px 17px; box-shadow: var(--shadow-sm); border: 1px solid var(--rule); }
+.tips-head { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; }
+.tip-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; font-size: 0.73rem; color: #444; line-height: 1.55; }
+.tip-mark { flex-shrink: 0; width: 15px; height: 15px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.58rem; font-weight: 800; margin-top: 2px; }
+.tip-mark.yes { background: var(--green-pale); color: var(--green-gain); }
+.tip-mark.no { background: var(--coral-pale); color: var(--coral); }
+
+/* TAKEAWAYS */
+.takeaways { background: var(--forest); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tk { background: rgba(255,255,255,0.05); border: 1px solid rgba(184,137,42,0.25); border-radius: 6px; padding: 7px 12px; font-size: 0.71rem; color: rgba(255,255,255,0.72); line-height: 1.5; flex: 1; min-width: 140px; }
+.tk::before { content: '— '; color: var(--gold); font-weight: 700; }
+
+footer { background: var(--forest); display: flex; align-items: center; justify-content: space-between; padding: 11px 22px; font-size: 0.64rem; color: rgba(255,255,255,0.28); letter-spacing: 0.06em; border-top: 1px solid rgba(255,255,255,0.06); }
+footer .author { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Wealth Cycle Trading</div>
+  <div class="header-right">
+    <span class="sheet-num">Sheet 3 / 4</span>
+    <span class="sheet-tag">LEAPS</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="kicker">Advanced Basics · Long-Term Options</div>
+    <h1>Option<br>LEAPS</h1>
+    <p>Long-term options with 1–3 year expirations. Less pressure, more time to be right, and a fraction of the upfront cost.</p>
+    <div class="acronym-row">
+      <div class="ac-pill"><strong>L</strong>ong-term</div>
+      <div class="ac-pill"><strong>E</strong>quity</div>
+      <div class="ac-pill"><strong>A</strong>nticipation</div>
+      <div class="ac-pill"><strong>P</strong>articipation</div>
+      <div class="ac-pill"><strong>S</strong>ecurities</div>
+    </div>
+  </div>
+  <div class="hero-chart">
+    <!-- SVG: LEAP growth curve over time -->
+    <svg width="150" height="90" viewBox="0 0 150 90" fill="none">
+      <defs>
+        <lineargradient id="leapGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5CCC8A" stop-opacity="0.5"></stop>
+          <stop offset="100%" stop-color="#5CCC8A" stop-opacity="0"></stop>
+        </lineargradient>
+      </defs>
+      <!-- Grid -->
+      <line x1="12" y1="10" x2="12" y2="75" stroke="rgba(255,255,255,0.1)" stroke-width="1"></line>
+      <line x1="12" y1="75" x2="145" y2="75" stroke="rgba(255,255,255,0.1)" stroke-width="1"></line>
+      <!-- Slow then accelerating growth -->
+      <path d="M 12 68 C 40 66, 70 62, 90 52 C 110 40, 125 24, 145 8 L 145 75 L 12 75 Z" fill="url(#leapGrad)"></path>
+      <path d="M 12 68 C 40 66, 70 62, 90 52 C 110 40, 125 24, 145 8" stroke="#5CCC8A" stroke-width="2" fill="none" stroke-linecap="round"></path>
+      <!-- Flat dotted line (flat regular stock) -->
+      <line x1="12" y1="55" x2="145" y2="40" stroke="rgba(212,168,75,0.5)" stroke-width="1.5" stroke-dasharray="4,3"></line>
+      <!-- Labels -->
+      <text x="14" y="84" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.3)">Buy</text>
+      <text x="88" y="84" font-family="Plus Jakarta Sans" font-size="8" fill="rgba(255,255,255,0.3)">Year 2</text>
+      <text x="94" y="48" font-family="Plus Jakarta Sans" font-size="7.5" fill="#5CCC8A">LEAP ↑</text>
+      <text x="94" y="34" font-family="Plus Jakarta Sans" font-size="7.5" fill="rgba(212,168,75,0.7)">Stock</text>
+    </svg>
+  </div>
+</div>
+
+<main>
+
+<!-- WHAT ARE LEAPS — 3 PILLARS -->
+<div class="label">What Are LEAPS? — Three Reasons They Work</div>
+<div class="pillars">
+  <div class="pillar">
+    <div class="pillar-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"></circle><path d="M10 6.5v4l2.5 1.5" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="pillar-title">More Time</div>
+    <div class="pillar-desc">Expirations 12–36 months away. You aren't rushed — the trade has room to breathe and develop.</div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14l4-4 3 3 5-6" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><rect x="2" y="2" width="16" height="16" rx="3" stroke="rgba(255,255,255,0.3)" stroke-width="1"></rect></svg>
+    </div>
+    <div class="pillar-title">Lower Capital</div>
+    <div class="pillar-desc">Control 100 shares for a fraction of the full cost. A $5,000 stock position might cost $700 as a LEAP.</div>
+  </div>
+  <div class="pillar">
+    <div class="pillar-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M6 7l4-4 4 4" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="pillar-title">Amplified Gain</div>
+    <div class="pillar-desc">If the stock rises strongly, your LEAP can multiply 3–5x in value while you risked only the premium.</div>
+  </div>
+</div>
+
+<!-- WHY USE LEAPS -->
+<div class="row-2">
+  <div class="card">
+    <div class="card-top-bar" style="background:var(--forest-mid)"></div>
+    <div class="card-title">Control Without Full Ownership</div>
+    <div class="card-body">
+      A LEAP lets you benefit from 100 shares of a company without paying full market price for every share.
+      <!-- Cost comparison SVG -->
+      <svg width="100%" height="54" viewBox="0 0 260 54" fill="none" style="margin:12px 0 6px;">
+        <!-- Buying 100 shares bar -->
+        <rect x="0" y="4" width="200" height="18" rx="3" fill="#FBF0F0" stroke="#EBBABA" stroke-width="1"></rect>
+        <text x="6" y="17" font-family="Plus Jakarta Sans" font-size="9" fill="#B84040">Buying 100 shares outright — $5,000</text>
+        <!-- LEAP bar -->
+        <rect x="0" y="30" width="56" height="18" rx="3" fill="var(--green-pale)" stroke="#B8DCCA" stroke-width="1"></rect>
+        <text x="6" y="43" font-family="Plus Jakarta Sans" font-size="9" fill="#1A6B41">LEAP — $700</text>
+        <!-- Saved label -->
+        <text x="62" y="43" font-family="Plus Jakarta Sans" font-size="8.5" fill="#4A4A4A">Controls same 100 shares</text>
+        <text x="0" y="54" font-family="Plus Jakarta Sans" font-size="8" fill="#B84040">← Full stock cost</text>
+        <text x="0" y="0" font-family="Plus Jakarta Sans" font-size="0" fill="none"></text>
+      </svg>
+      <div class="analogy">
+        <div class="analogy-label">Real Estate Analogy</div>
+        A $400K house deposit ($10K) secures your right to buy it. You benefit if the value rises — without paying the full price yet.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-top-bar" style="background:var(--gold)"></div>
+    <div class="card-title">Less Pressure Than Short Options</div>
+    <div class="card-body">
+      Regular options expire in days or weeks — that's stressful. LEAPS give you months or years to be right.
+      <div class="analogy">
+        <div class="analogy-label">Gardening Analogy</div>
+        A regular option is planting a seed and demanding harvest in 7 days. A LEAP is planting in spring and waiting until fall. The crop has time to grow.
+      </div>
+      <!-- Theta decay comparison -->
+      <svg width="100%" height="44" viewBox="0 0 260 44" fill="none" style="margin-top:10px;">
+        <text x="0" y="10" font-family="Plus Jakarta Sans" font-size="8" fill="#888">Theta decay speed:</text>
+        <!-- Weekly option — steep drop -->
+        <text x="0" y="22" font-family="Plus Jakarta Sans" font-size="7.5" fill="#B84040">Weekly option</text>
+        <polyline points="80,16 110,16 130,18 150,24 170,34 190,40" stroke="#B84040" stroke-width="1.5" fill="none" stroke-linecap="round"></polyline>
+        <!-- LEAP — shallow drop -->
+        <text x="0" y="34" font-family="Plus Jakarta Sans" font-size="7.5" fill="#1A6B41">LEAP (2yr)</text>
+        <polyline points="80,30 110,30 130,31 150,31 170,32 190,33" stroke="#1A6B41" stroke-width="1.5" fill="none" stroke-linecap="round"></polyline>
+        <text x="195" y="41" font-family="Plus Jakarta Sans" font-size="7.5" fill="#888">Expiry →</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO PICK A LEAP -->
+<div class="card" style="margin-bottom:14px;">
+  <div class="card-title">How to Pick a LEAP — Tap Each Option</div>
+  <div class="card-body">Two key decisions: how long to go, and how conservative or aggressive you want to be.</div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-card" style="background:var(--forest-light);border:1px solid var(--forest-border);border-radius:8px;padding:14px 16px;margin:12px 0;">
+    <div style="font-size:0.6rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--forest-mid);margin-bottom:10px;">Expiration Timeline — Aim Right</div>
+    <div style="position:relative;padding-top:18px;">
+      <div style="position:absolute;top:22px;left:0;right:0;height:2px;background:linear-gradient(90deg,#B84040,#B8892A,#2A6442);border-radius:2px;"></div>
+      <div style="display:flex;justify-content:space-between;">
+        <div style="text-align:center;flex:1;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#B84040;border:2px solid white;margin:0 auto 6px;box-shadow:0 0 0 2px #B84040;"></div>
+          <div style="font-size:0.62rem;font-weight:700;color:#B84040;">30–90 days</div>
+          <div style="font-size:0.58rem;color:#888;margin-top:2px;line-height:1.4;">Regular<br>option</div>
+        </div>
+        <div style="text-align:center;flex:1;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#B8892A;border:2px solid white;margin:0 auto 6px;box-shadow:0 0 0 2px #B8892A;"></div>
+          <div style="font-size:0.62rem;font-weight:700;color:#B8892A;">6–12 months</div>
+          <div style="font-size:0.58rem;color:#888;margin-top:2px;line-height:1.4;">Short<br>LEAP</div>
+        </div>
+        <div style="text-align:center;flex:1;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#2A6442;border:2px solid white;margin:0 auto 6px;box-shadow:0 0 0 2px #2A6442;"></div>
+          <div style="font-size:0.62rem;font-weight:700;color:#2A6442;">1.5–2 years</div>
+          <div style="font-size:0.58rem;color:#888;margin-top:2px;line-height:1.4;">Ideal for<br>beginners</div>
+        </div>
+        <div style="text-align:center;flex:1;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#163D26;border:2px solid white;margin:0 auto 6px;box-shadow:0 0 0 2px #163D26;"></div>
+          <div style="font-size:0.62rem;font-weight:700;color:#163D26;">2–3 years</div>
+          <div style="font-size:0.58rem;color:#888;margin-top:2px;line-height:1.4;">Maximum<br>LEAP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="picker-grid">
+    <div class="picker-card safe" onclick="this.classList.toggle(&#39;open&#39;)">
+      <div class="pc-header">
+        <div class="pc-tag">Safer Choice</div>
+        <div class="pc-title">Conservative LEAP</div>
+      </div>
+      <div class="pc-rows">
+        <div class="pc-row"><span class="pc-bullet">◆</span>Expiration: 1.5–3 years out</div>
+        <div class="pc-row"><span class="pc-bullet">◆</span>Strike: At or below current price (ITM)</div>
+        <div class="pc-row"><span class="pc-bullet">◆</span>Higher premium, higher reliability</div>
+      </div>
+      <div class="pc-more">ITM LEAPS already have built-in value, behave more like the stock itself (high delta), and decay slowly. Best for beginners starting out. Think of it as the "no-frills, solid foundation" pick.</div>
+      <span class="tap-cue">Tap to expand ↓</span>
+    </div>
+    <div class="picker-card risky" onclick="this.classList.toggle(&#39;open&#39;)">
+      <div class="pc-header">
+        <div class="pc-tag">Riskier Choice</div>
+        <div class="pc-title">Aggressive LEAP</div>
+      </div>
+      <div class="pc-rows">
+        <div class="pc-row"><span class="pc-bullet">◆</span>Expiration: 6–12 months</div>
+        <div class="pc-row"><span class="pc-bullet">◆</span>Strike: Above current price (OTM)</div>
+        <div class="pc-row"><span class="pc-bullet">◆</span>Cheaper, but needs a big stock move</div>
+      </div>
+      <div class="pc-more">OTM LEAPS are cheaper but require the stock to move significantly in your favor. High reward potential — but could expire worthless. Not recommended until you're comfortable with how LEAPS work.</div>
+      <span class="tap-cue">Tap to expand ↓</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXAMPLE WALKTHROUGH -->
+<div class="example-dark">
+  <div class="ex-title">Simple Example — Full Walkthrough</div>
+  <div class="ex-steps">
+    <div class="ex-step"><div class="ex-num">1</div><div class="ex-text">You believe <strong>Company ABC</strong> will grow over 2 years. It currently trades at <strong>$50/share</strong></div></div>
+    <div class="ex-step"><div class="ex-num">2</div><div class="ex-text">Buying 100 shares outright would cost <strong>$5,000</strong> — a significant commitment</div></div>
+    <div class="ex-step"><div class="ex-num">3</div><div class="ex-text">Instead, you buy a Call LEAP: <strong>$50 strike price, 2-year expiration</strong> — costs <strong>$700 premium</strong></div></div>
+    <div class="ex-step"><div class="ex-num">4</div><div class="ex-text">18 months later, Company ABC rises to <strong>$90/share</strong> — a $40 increase</div></div>
+    <div class="ex-step"><div class="ex-num">5</div><div class="ex-text">Your LEAP is now worth ~<strong>$4,200</strong>. You sell it before expiration</div></div>
+  </div>
+  <!-- Mini chart -->
+  <svg width="100%" height="40" viewBox="0 0 340 40" preserveAspectRatio="none" fill="none" style="margin-bottom:10px;display:block;">
+    <defs><lineargradient id="exDarkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5CCC8A" stop-opacity="0.25"></stop><stop offset="100%" stop-color="#5CCC8A" stop-opacity="0"></stop></lineargradient></defs>
+    <path d="M 0 34 C 80 32 150 28 200 20 C 240 14 290 6 340 2 L 340 40 L 0 40 Z" fill="url(#exDarkGrad)"></path>
+    <path d="M 0 34 C 80 32 150 28 200 20 C 240 14 290 6 340 2" stroke="#5CCC8A" stroke-width="1.5" fill="none" stroke-linecap="round"></path>
+    <circle cx="0" cy="34" r="2.5" fill="#D4A84B"></circle><circle cx="340" cy="2" r="2.5" fill="#5CCC8A"></circle>
+  </svg>
+  <div class="ex-result">
+    <div class="er-label">You risked <strong style="color:white">$700</strong> instead of <strong style="color:white">$5,000</strong></div>
+    <div class="badge-gain">+$3,500 profit (5× return)</div>
+  </div>
+</div>
+
+<!-- PATIENCE -->
+<div class="patience">
+  <svg class="patience-icon" width="44" height="44" viewBox="0 0 44 44" fill="none">
+    <circle cx="22" cy="22" r="19" stroke="#B8892A" stroke-width="1.5" opacity="0.4"></circle>
+    <circle cx="22" cy="22" r="19" stroke="#B8892A" stroke-width="1.5" stroke-dasharray="28 92" stroke-dashoffset="-10" stroke-linecap="round"></circle>
+    <path d="M22 12v10l6 4" stroke="#B8892A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+  <div>
+    <div class="patience-title">The Secret Ingredient: Patience</div>
+    <div class="patience-body">LEAPS reward waiting. You don't need to watch the stock daily. Plant the position, review it quarterly, and let time do the work. Most LEAP profits arrive in months 8–18, not week one.</div>
+  </div>
+</div>
+
+<!-- TIPS + MISTAKES -->
+<div class="tips-row">
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--green-gain)"><div class="dot" style="background:var(--green-gain)"></div>Pro Tips</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Choose companies you genuinely believe in long-term</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Pick ITM or ATM strikes — OTM is too risky to start</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Target at least 18 months of expiration time</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Sell before expiration — don't let a winning LEAP expire</div>
+    <div class="tip-item"><div class="tip-mark yes">✓</div>Set a quarterly calendar reminder to review your position</div>
+  </div>
+  <div class="tips-card">
+    <div class="tips-head" style="color:var(--coral)"><div class="dot" style="background:var(--coral)"></div>Common Mistakes</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Picking expirations under 6 months — defeats the LEAP purpose</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Buying far OTM as a beginner — high chance of total loss</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Panic selling during a normal market dip mid-LEAP</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Forgetting you hold it — options require active management</div>
+    <div class="tip-item"><div class="tip-mark no">✕</div>Concentrating all capital into one LEAP on one company</div>
+  </div>
+</div>
+
+<!-- TAKEAWAYS -->
+<div class="label">Key Takeaways</div>
+<div class="takeaways">
+  <div class="tk">LEAPS = options with 1–3 year expirations — same mechanics, more time</div>
+  <div class="tk">Control 100 shares for a fraction of the full stock cost</div>
+  <div class="tk">ITM + 2-year expiration = the safest LEAP combination for beginners</div>
+  <div class="tk">Time decay (Theta) is slow on LEAPS — you won't lose value overnight</div>
+  <div class="tk">Patience is your edge — most LEAP profits come after month 6</div>
+</div>
+
+</main>
+<footer>
+  <span>Wealth Cycle Trading &nbsp;·&nbsp; Sheet 3 of 4 — Option LEAPS</span>
+  <span class="author">Authored by J. Lawrence</span>
+</footer>
+
+
+</body></html>
